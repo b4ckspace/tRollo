@@ -16,7 +16,7 @@
 void mqttCallback(char* topic, byte* payload, unsigned int length);
 static uint8_t mac[] = { 0xCA, 0xFF, 0xEB, 0xAB, 0xEA, 0xA2 };
 
-#define MQTT_HOST "openhab.owlnest" //"mqtt.core.bckspc.de"
+#define MQTT_HOST "mqtt.core.bckspc.de"
 #define MQTT_PORT 1883
 #define MQTT_MAX_CONNECT_RETRY 42
 
