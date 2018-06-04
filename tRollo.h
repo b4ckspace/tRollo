@@ -7,14 +7,15 @@
 
 #ifdef HACKCENTER
 #define LOCATION "hackcenter"
+static uint8_t mac[] = { 0xCA, 0xFF, 0xEB, 0xAB, 0xEA, 0xA0 };
 #elif LOUNGE
 #define LOCATION "lounge"
+static uint8_t mac[] = { 0xCA, 0xFF, 0xEB, 0xAB, 0xEA, 0xA2 };
 #endif
 
 #define HOSTNAME "trollo-" LOCATION
 
 void mqttCallback(char* topic, byte* payload, unsigned int length);
-static uint8_t mac[] = { 0xCA, 0xFF, 0xEB, 0xAB, 0xEA, 0xA2 };
 
 #define MQTT_HOST "mqtt.core.bckspc.de"
 #define MQTT_PORT 1883
