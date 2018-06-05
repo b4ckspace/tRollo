@@ -2,15 +2,15 @@
 #include "Rademacher7105.h"
 #include "Rollotron9600.h"
 
-#define HACKCENTER
-//#define LOUNGE "lounge"
+//#define HACKCENTER
+#define LOUNGE
 
-#ifdef HACKCENTER
+#if defined(HACKCENTER)
 #define LOCATION "hackcenter"
-static uint8_t mac[] = { 0xCA, 0xFF, 0xEB, 0xAB, 0xEA, 0xA0 };
-#elif LOUNGE
+static uint8_t mac[] = { 0xCA, 0xFF, 0xEB, 0xAB, 0xEE, 0xA0 };
+#elif defined(LOUNGE)
 #define LOCATION "lounge"
-static uint8_t mac[] = { 0xCA, 0xFF, 0xEB, 0xAB, 0xEA, 0xA2 };
+static uint8_t mac[] = { 0xCA, 0xFF, 0xEB, 0xAB, 0xEE, 0xA2 };
 #endif
 
 #define HOSTNAME "trollo-" LOCATION
@@ -43,8 +43,8 @@ t_windowBlinds windowBlinds[] = {
 
 #ifdef HACKCENTER
 t_windowBlinds windowBlinds[] = {
-  {"right",  new Rollotron9600(A0, A1)},
-  {"left",   new Rollotron9600(A2, A3)}
+  {"left",  new Rollotron9600(13, 12)},
+  {"right", new Rollotron9600(8, 9)}
 };
 #endif
 

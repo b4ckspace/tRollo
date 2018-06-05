@@ -1,3 +1,4 @@
+#include <SPI.h>
 #include <Ethernet.h>
 #include <PubSubClient.h>
 
@@ -10,10 +11,11 @@ uint8_t mqttRetryCounter = 0;
 
 void setup() {
   Serial.begin(115200);
-  
+  Serial.println("HI There!");
+
   pinMode(10, OUTPUT); // set the SS pin as an output (necessary!)
   digitalWrite(10, HIGH); // but turn off the W5100 chip!
-  
+
   Ethernet.begin(mac);
   Serial.println(Ethernet.localIP());
 }
@@ -28,9 +30,9 @@ WindowBlindActor* getWindowBlindActorByIdentifier(char* identifier) {
   return NULL;
 }
 
-void mqttCallback(char* topic, byte* payload, unsigned int length) {  
+void mqttCallback(char* topic, byte* payload, unsigned int length) {
   char* identifier = topic + strlen(MQTT_TOPIC_TROLLO) - 1;
-  
+
   WindowBlindActor* actor = getWindowBlindActorByIdentifier(identifier);
   if (actor == NULL) {
     Serial.print("Can't find actor: ");
